@@ -1,4 +1,4 @@
-a = int(input("Pervoe chislo: "))
-b = int(input("Vtoroe chislo: "))
+a = int(input("a: "))
+b = int(input("b: "))
 c = a + b
-print("res =",c)
+print("sum =",c)
