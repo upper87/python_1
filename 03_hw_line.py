@@ -4,12 +4,12 @@ v = int(input("Введите скорость байкера: "))
 t = int(input("Введите время движения байкера в часах: "))
 
 if v >= 0:
-    circle = int(((v * t)/108))
-    S = (v * t) - (circle*108)
+    circle = int(((v * t)/109))
+    S = (v * t) - (circle*109)
     d = "по часовой стрелки МКАД"
 else:
-    circle = abs(int(((v * t)/108)))
-    S = 108 - ((abs(v) * t) - (circle*108))
+    circle = abs(int(((v * t)/109)))
+    S = 109 - ((abs(v) * t) - (circle*109))
     d = "против часовой стрелки МКАД"
 
 
