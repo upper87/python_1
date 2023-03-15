@@ -16,6 +16,9 @@
 name = "Василий"
 
 # print(name[first:end:step])
-name = name.upper()
-print(name)
+# name = name.upper()
+result = name.count('ли')
+result_digital = name.isdigit()
+result_find = name.find("ий")
+print(result, result_digital, result_find)
 
