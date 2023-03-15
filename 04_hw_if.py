@@ -1,6 +1,6 @@
 k = int(input("Получится ли купить кол-во шариков: "))
 
-if (k % 10) == 3 or (k % 10) == 5 or (k % 10) == 8 or (k % 10) == 0 :
+if k != 1 and k != 2 and k != 4 and k != 7:
     print("Да")
 else:
     print("Нет")

@@ -1,7 +1,21 @@
-n = int(input("n:"))
+# Цикл вайл
+# n = int(input("n:"))
+#
+# count = 0
+#
+# while count < n:
+#     print("Hello")
+#     count += 1
 
-count = 0
+# Строки
 
-while count < n:
-    print("Hello")
-    count += 1
+# first = int(input())
+# end = int(input())
+# step = int(input())
+
+name = "Василий"
+
+# print(name[first:end:step])
+name = name.upper()
+print(name)
+
