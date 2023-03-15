@@ -5,7 +5,6 @@ i_1 = 0
 sym = 0
 a = str(text[0])
 b = str(text[0])
-low = text.lower()
 
 while i < len(low):
     a = text[i]
