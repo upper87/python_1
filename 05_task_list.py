@@ -33,4 +33,5 @@ for fruit in fruits:
         max_length = len(fruit)
 
 for i, fruit in enumerate(fruits,1):
-    print(str(i) + ".", fruit.rjust(max_length, space))
+    # print(str(i) + ".", fruit.rjust(max_length, space))
+    print(f"{i}. {fruit:>{max_length}}")

@@ -56,10 +56,88 @@
 # for list in my_list:
 #     print(list)
 
-numbers = [2, 4, 0, - 35, 20, -5, 0, -45]
+# numbers = [2, 4, 0, - 35, 20, -5, 0, -45]
+#
+# num_positive = 0
+#
+# for number in numbers:
+#     if number > 0:
+#         print(number)
 
-num_positive = 0
+# people = {
+#     "name" : "Иван",
+#     "age" : 34,
+#     "address" : {
+#         "city" : "Москва",
+#         "street" : "ploshad"
+#     }
+# }
+# print(people["address"]["street"])
+# print(people["age"])
 
-for number in numbers:
-    if number > 0:
-        print(number)
+# item = {
+#     "title": "Кепка",
+#     "color": "Черный",
+#     "cost": "1300"
+# }
+# item["cost"] = 1500
+# item["brand"] = "rebook"
+# del item["color"]
+# item["colors"] = ["black", "red", "white"]
+# print(item)
+
+# items = [
+#     {
+#      "title": "Кепка",
+#      "color": "Черный",
+#      "cost": "1300"
+#     },
+#     {
+#         "title": "Кимано",
+#         "color": "Белый",
+#         "cost": "300"
+#     },
+#     {
+#         "title": "Штаны",
+#         "color": "Зеленые",
+#         "cost": "2500"
+#     }
+#
+# ]
+# print(items[1]["title"])
+# for num, item in enumerate(items,1):
+#     print(f"{num}. {item['title']}")
+
+
+# def sum2(a, b):
+#     c = a + b
+#     return c
+#
+# res = sum2(2, 3)
+# print(res)
+
+# def my_max(*args):
+#     max_value = args[0]
+#     for arg in args:
+#         if arg > max_value:
+#             max_value = arg
+#     return max_value
+#     print(args)
+#
+# res = my_max(3)
+# res = my_max(3,6)
+# # res = my_max(1,2,3,4,5)
+# print(res)
+
+import lib
+from lib import distance
+import sys
+import requests
+resault = requests.get("https://oldteam.us")
+print(resault.content)
+
+print(sys.path)
+
+print(lib.palindrome(12321))
+
+print(distance(1, 2, 3, 4))

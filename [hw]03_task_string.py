@@ -1,9 +1,10 @@
 text = input("Введите строку: ")
 consonants = "бвгджзйклмнпрстфхцчшщ"
-sum = 0
+num_consonants = 0
 
-for glob in text:
+for glob in text.lower():
     for word in consonants:
         if glob == word:
-            sum += 1
-print("Согласных букв:", sum)
+            num_consonants += 1
+
+print("Согласных букв:", num_consonants)
