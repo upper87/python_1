@@ -45,7 +45,19 @@ elif index_div2 >= 0 and index_integer2 >= 0:
 
 print(integer2, chislitel2, znamenatel2)
 
-# if type(chislitel2) == str or type(chislitel) == str:
-#     summa_integer = integer+integer2
-# if type(integer) == str or type(integer2) == str:
-#     print((chislitel + znamenatel), (chislitel2+znamenatel2))
+# res_chislitel = "Отсутствует"
+# res_znamenatel = "Отсутствует"
+
+if type(integer) == str and type(integer2) == str:
+    res_integer = "Целая часть отсутствует"
+elif type(integer) != str and type(integer2) != str:
+    res_integer = integer + integer2
+elif type(integer) == str:
+    res_integer = integer2
+elif type(integer2) == str:
+    res_integer = integer2
+
+if znamenatel == znamenatel2:
+    res_chislitel = chislitel + chislitel2
+    res_znamenatel = znamenatel
+print(f"{res_integer} {res_chislitel}/{res_znamenatel} ")
