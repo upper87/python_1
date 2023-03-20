@@ -129,15 +129,30 @@
 # # res = my_max(1,2,3,4,5)
 # print(res)
 
-import lib
-from lib import distance
-import sys
-import requests
-resault = requests.get("https://oldteam.us")
-print(resault.content)
+# import lib
+# from lib import distance
+# import sys
+# import requests
+# resault = requests.get("https://oldteam.us")
+# print(resault.content)
+#
+# print(sys.path)
+#
+# print(lib.palindrome(12321))
+#
+# print(distance(1, 2, 3, 4))
 
-print(sys.path)
+# Class's
 
-print(lib.palindrome(12321))
+class Item:
+    def __init__(self, name, color, cost):
+        self.name = name
+        self.color = color
+        self.cost = cost
 
-print(distance(1, 2, 3, 4))
+
+item1 = Item("кепка", "синний", 1400)
+item2 = Item("Кеды", "красные", 1000)
+item3 = Item("футбоолка", "Бедая", 500)
+
+print(item2.name)
