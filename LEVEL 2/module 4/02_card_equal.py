@@ -15,7 +15,7 @@ class Card:
         return f"{self.value} {icons[self.suit]}"
 
     def equal_suit(self, other_card):
-        if self.suit == other_card[1]:
+        return self.suit == other_card.suit
 
 
 

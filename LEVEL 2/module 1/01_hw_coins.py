@@ -1,4 +1,6 @@
 import random
+
+
 class Coin:
     def __init__(self):
         self.side = None
@@ -17,22 +19,21 @@ coin_list = []
 
 while i < n_coins:
     coin = Coin()
-    coin.flip()
-    coin_list.append(coin.side)
+    coin_list.append(coin)
     i += 1
-print(coin_list)
 
 heads = 0
 tails = 0
 
-for _ in coin_list:
-    if _ == "Орел":
+for coin in coin_list:
+    coin.flip()
+    if coin.side == "Орел":
         heads += 1
-    elif _ == "Решка":
+    elif coin.side == "Решка":
         tails += 1
 
-print(f"Процентное соотношение орла к решке ровно процентов {int(heads / tails * 100)} %,"
-      f" а орла к решке {int(tails / heads * 100)} %")
+print(f"Процентное соотношение орла к решке ровно процентов {heads / (heads + tails) * 100} %")
+print(f" а решке к орлу {tails / (tails + heads) * 100} %")
 print(heads, tails)
 
 # Задание:

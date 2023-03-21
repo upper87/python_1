@@ -144,15 +144,18 @@
 
 # Class's
 
-class Item:
-    def __init__(self, name, color, cost):
-        self.name = name
-        self.color = color
-        self.cost = cost
+# class Item:
+#     def __init__(self, name, color, cost):
+#         self.name = name
+#         self.color = color
+#         self.cost = cost
+#
+#
+# item1 = Item("кепка", "синний", 1400)
+# item2 = Item("Кеды", "красные", 1000)
+# item3 = Item("футбоолка", "Бедая", 500)
+#
+# print(item2.name)
 
-
-item1 = Item("кепка", "синний", 1400)
-item2 = Item("Кеды", "красные", 1000)
-item3 = Item("футбоолка", "Бедая", 500)
-
-print(item2.name)
+my_list = [2, 3, 4, 5]
+print(my_list)
