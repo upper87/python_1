@@ -1,18 +1,3 @@
-def sort_choice(nums, reverse = False) -> None:
-    i = 0
-    while i < len(nums) - 1:
-        m = i
-        j = i + 1
-        while j < len(nums):
-            if reverse:
-                rule_sort = nums[j] < nums[m]
-            else:
-                rule_sort = nums[j] > nums[m]
-            if rule_sort:
-                m = j
-            j += 1
-        nums[i], nums[m] = nums[m], nums[i]
-        i += 1
 # Дан список сотрудников:
 staff = [
     {
@@ -37,14 +22,22 @@ staff = [
     },
     {
         'name': 'Василий',
-        'surname': 'Павлов',
+        'surname': 'Авдеев',
         'salary': 34500
     },
 ]
 
-
-# 1. Выведите список сотрудников, отсортированный по уменьшению их заработной платы.
-# Если у нескольких сотрудников одинаковая ЗП, то добавьте сортировку по Фамилии
+# print(staff['salary'])
+staff.sort(key=lambda emp: (-emp["salary"], emp['surname']))
 print("Список сотрудников отсортированный по уменьшению ЗП:")
+for emp in staff:
+    print(f"{emp['name']} {emp['surname']} {emp['salary']} ")
+
 
 # 2. Найдите сумму зарплат трех самых низкооплачиваемых сотрудников:
+
+# summa = 0
+# for staf in staff[-3:]:
+#     summa += staf['salary']
+# print(summa)
+print(sum(map(lambda emp: emp['salary'], staff[-3:])))

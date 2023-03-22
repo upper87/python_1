@@ -156,6 +156,18 @@
 # item3 = Item("футбоолка", "Бедая", 500)
 #
 # print(item2.name)
+#
+# my_list = [2, 3, 4, 5]
+# print(my_list)
+# def square(n):
+#     return n * n
 
-my_list = [2, 3, 4, 5]
-print(my_list)
+
+numbers = [2, 5, 6, 7]
+
+sum(numbers)
+# res = list(map(square, numbers))
+
+res = sum(list(map(lambda n: n*n, numbers)))
+print(res)
+
