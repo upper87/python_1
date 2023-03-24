@@ -21,6 +21,8 @@ class Operation:
         :return: возвращает строковое представление операции. Формат указан в 02_IBank_part2.md
         """
         str_out = f"{self.type} {self.amount} руб."
+        if self.type == Operation.WITHDRAW:
+            str_out += f"(комиссия:{int(Account.FEE / 100 * self.amount)})"
         if self.type == Operation.TRANSFER_OUT:
             str_out += f" на счет клиента: {self.target_account.name}"
         if self.type == Operation.TRANSFER_IN:
@@ -29,6 +31,8 @@ class Operation:
 
 
 class Account:
+    FEE = 2
+
     def __init__(self, name: str, passport: str, phone_number: str, start_balance: int = 0):
         self.name = name
         self.passport = passport
@@ -37,10 +41,10 @@ class Account:
         # историю храним как список объектов класса Operation, добавив свойство в конструктор:
         self.__history: List[Operation] = []
 
-    # TODO: сюда копируем реализацию методом класса Account из предыдущей задачи
-    #  и реализуем добавление в историю
+    @property
+    def balance(self) -> int:
+        return self.__balance
 
-    # Данный метод дан в готовом виде. Изучите его и используйте как пример, для доработки других
     def deposit(self, amount: int, to_history: bool = True) -> None:
         """
         Внесение суммы на текущий счет
@@ -52,16 +56,24 @@ class Account:
             operation = Operation(amount, Operation.DEPOSIT)
             self.__history.append(operation)
 
+    @staticmethod
+    def calculate_fee(amount: int) -> int:
+        return int(amount * (100 + Account.FEE) / 100)
+
+    def is_enough_money(self, amount) -> bool:
+        amount_with_fee = Account.calculate_fee(amount)
+        return self.__balance - amount_with_fee >= 0
+
     def withdraw(self, amount: int, to_history: bool = True) -> None:
         """
         Снятие суммы с текущего счета
         :param amount: сумма
         """
-        new_balance = self.__balance - amount
-        if new_balance >= 0:
-            self.__balance = new_balance
+        amount_with_fee = Account.calculate_fee(amount)
+        if self.is_enough_money(amount):
+            self.__balance -= amount_with_fee
             if to_history:
-                operation = Operation(amount, Operation.WITHDRAW)
+                operation = Operation(Operation.WITHDRAW, amount)
                 self.__history.append(operation)
         else:
             raise ValueError("Недостаточно денег на счете")
@@ -85,3 +97,45 @@ class Account:
         :return: возвращаем историю операций в виде списка операций
         """
         return self.__history
+
+
+class CreditAccount(Account):
+    NEGATIVE_FEE = 5
+
+    @staticmethod
+    def calculate_fee(amount: int, balance=0) -> int:
+        if balance < 0:
+            fee = CreditAccount.NEGATIVE_FEE
+        else:
+            fee = Account.FEE
+        return int(amount * (100 + fee) / 100)
+
+    def __init__(self, name, passport, phone_number, start_balance=0, negative_limit=0):
+        super().__init__(name, passport, phone_number, start_balance)
+        self.negative_limit = negative_limit
+
+    def is_enough_money(self, amount) -> bool:
+        amount_with_fee = Account.calculate_fee(amount)
+        return self.balance + self.negative_limit - amount_with_fee >= 0
+
+
+
+account1 = CreditAccount("Иван", "3230 634563", "+7-900-765-12-34", 1000, negative_limit=1000)
+
+try:
+    account1.withdraw(1000)
+except ValueError as e:
+    print(e)
+print(account1.balance)
+try:
+    account1.withdraw(500)
+except ValueError as e:
+    print(e)
+print(account1.balance)
+
+try:
+    account1.withdraw(500)
+except ValueError as e:
+    print(e)
+
+print(account1.balance)

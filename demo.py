@@ -163,11 +163,18 @@
 #     return n * n
 
 
-numbers = [2, 5, 6, 7]
+# numbers = [2, 5, 6, 7]
+#
+# sum(numbers)
+# # res = list(map(square, numbers))
+#
+# res = sum(list(map(lambda n: n*n, numbers)))
+# print(res)
 
-sum(numbers)
-# res = list(map(square, numbers))
+class Item:
+    def __init__(self, name, cost):
+        self.name = name1
+        self.cost = cost
 
-res = sum(list(map(lambda n: n*n, numbers)))
-print(res)
-
+item1 = Item("Банка", 100)
+item2 = Item("Палка", 200)
