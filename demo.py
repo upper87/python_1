@@ -171,10 +171,14 @@
 # res = sum(list(map(lambda n: n*n, numbers)))
 # print(res)
 
-class Item:
-    def __init__(self, name, cost):
-        self.name = name1
-        self.cost = cost
-
-item1 = Item("Банка", 100)
-item2 = Item("Палка", 200)
+# class Item:
+#     def __init__(self, name, cost):
+#         self.name = name1
+#         self.cost = cost
+#
+# item1 = Item("Банка", 100)
+# item2 = Item("Палка", 200)
+import collections
+numbers = [2, 4, -2, 0, -5, 6]
+only_positive = list(filter(lambda n: n > 0, numbers))
+print(only_positive)
