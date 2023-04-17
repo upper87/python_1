@@ -2,9 +2,6 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/git_clone_module_1/SpecialistPython1_v2" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/git_clone_module_1/a7f4983d455a2d33f20c6107481b149f" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/git_clone_module_2/SpecialistPython2_v2" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/git_clone_module_2/a6b67d7804dd37f5592c2d6870d651dc" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
   </component>
 </project>
